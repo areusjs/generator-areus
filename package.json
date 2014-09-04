@@ -1,0 +1,42 @@
+{
+  "name": "generator-tesla",
+  "version": "0.0.1",
+  "description": "Yeoman generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chmontgomery/generator-tesla"
+  },
+  "author": "Chris Montgomery (https://github.com/chmontgomery)",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.17.0",
+    "chalk": "^0.5.0",
+    "yosay": "^0.3.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/chmontgomery/generator-tesla/issues"
+  },
+  "homepage": "https://github.com/chmontgomery/generator-tesla",
+  "directories": {
+    "test": "test"
+  }
+}

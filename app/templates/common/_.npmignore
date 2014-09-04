@@ -1,0 +1,11 @@
+.travis.yml
+readme.md
+/gulpfile.js
+/test/
+.idea
+.DS_Store
+*.log
+*.orig
+/target/coverage
+.coveralls.yml
+/bower_components/

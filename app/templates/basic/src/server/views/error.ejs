@@ -1,0 +1,13 @@
+<% include header %>
+
+<h1><%- error.status %></h1>
+<pre>
+<%- message %>
+</pre>
+<% if (error.stack) { %>
+<h3>Stack</h3>
+<pre>
+<%- error.stack %>
+</pre>
+<% } %>
+<% include footer %>
