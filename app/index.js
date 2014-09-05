@@ -30,6 +30,11 @@ var AppGenerator = yeoman.generators.Base.extend({
         default: "application"
       },
       {
+        name: 'yourName',
+        message: 'Your name?',
+        default: "Chris Montgomery"
+      },
+      {
         type: 'confirm',
         name: 'isPublic',
         message: 'Is public?',

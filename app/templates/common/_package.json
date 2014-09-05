@@ -8,11 +8,11 @@
     "postinstall": "gulp bundle"
   },
   "author": {
-    "name": "Chris Montgomery"
+    "name": "<%= yourName %>"
   },
   "contributors": [
     {
-      "name": "Chris Montgomery"
+      "name": "<%= yourName %>"
     }
   ],
   "license": "MIT",
