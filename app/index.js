@@ -1,7 +1,7 @@
 'use strict';
 var path = require('path');
 var yeoman = require('yeoman-generator');
-var yosay = require('yosay');
+var multiline = require('multiline');
 
 var AppGenerator = yeoman.generators.Base.extend({
   initializing: function () {
@@ -11,9 +11,17 @@ var AppGenerator = yeoman.generators.Base.extend({
   prompting: function () {
     var done = this.async();
 
-    this.log(yosay(
-      "'Allo! What would you like to do today?"
-    ));
+    this.log(multiline(function () {/*
+  ______          __
+ /_  __/__  _____/ /___ _
+  / / / _ \/ ___/ / __ `/
+ / / /  __(__  ) / /_/ /
+/_/  \___/____/_/\__,_/
+
+    */
+    }));
+
+    this.log('\n');
 
     var prompts = [
       {

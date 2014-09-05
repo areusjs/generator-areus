@@ -9,11 +9,11 @@ var routes = require('./routes/index');
 function createApp() {
   var app = express();
 
-  // view engine setup
+  app.engine('.html', require('ejs').__express);
   app.set('views', path.join(__dirname, 'views'));
-  app.set('view engine', 'EJS');
+  app.set('view engine', 'html');
 
-  app.set('title', '<%= _.slugify(applicationName) %>');
+  app.set('title', 'application');
 
   // app.use(favicon(__dirname + '/public/img/favicon.ico'));
   app.use(logger('dev'));
@@ -37,21 +37,17 @@ function createApp() {
   // will print stacktrace
   if (app.get('env') === 'development') {
     app.use(function (err, req, res, next) {
-      res.status(err.status/* || 500*/);
+      res.status(err.status || 500);
       res.render('error', {
-        message: err.message,
-        error: err,
-        title: 'error'
+        error: err
       });
     });
   } else {
     // no stacktraces leaked to user
     app.use(function (err, req, res, next) {
-      res.status(err.status/* || 500*/);
+      res.status(err.status || 500);
       res.render('error', {
-        message: err.message,
-        error: {},
-        title: 'error'
+        error: err
       });
     });
   }
