@@ -1,8 +1,8 @@
-var debug = require('debug')('expressapp');
-var app = require('./src/server')();
+var log = require('./src/server/console-log'),
+  app = require('./src/server')();
 
 app.set('port', process.env.PORT || 3000);
 
-var server = app.listen(app.get('port'), function() {
-  debug('Server listening on port ' + server.address().port);
+var server = app.listen(app.get('port'), function () {
+  log.info('Server listening on port ' + server.address().port);
 });

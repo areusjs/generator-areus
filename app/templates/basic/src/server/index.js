@@ -16,7 +16,7 @@ function createApp() {
   app.set('title', '<%= applicationName %>');
 
   // app.use(favicon(__dirname + '/public/img/favicon.ico'));
-  app.use(logger('dev'));
+  app.use(logger('dev')); // log all requests
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({
     extended: true
