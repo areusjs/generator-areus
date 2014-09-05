@@ -6,7 +6,7 @@
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chmontgomery/generator-tesla"
+    "url": "https://github.com/montgomeryc/generator-tesla"
   },
   "author": "Chris Montgomery (https://github.com/chmontgomery)",
   "engines": {
@@ -34,9 +34,9 @@
     "yo": ">=1.0.0"
   },
   "bugs": {
-    "url": "https://github.com/chmontgomery/generator-tesla/issues"
+    "url": "https://github.com/montgomeryc/generator-tesla/issues"
   },
-  "homepage": "https://github.com/chmontgomery/generator-tesla",
+  "homepage": "https://github.com/montgomeryc/generator-tesla",
   "directories": {
     "test": "test"
   }

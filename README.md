@@ -12,7 +12,3 @@ Finally, `cd` to the directory where you are going to generate an app and then, 
 ```bash
 yo tesla
 ```
-
-## License
-
-MIT
