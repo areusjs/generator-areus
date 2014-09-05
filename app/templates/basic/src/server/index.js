@@ -5,14 +5,18 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
+var mustlayout = require('mustlayout');
 
 var app = express();
 
-app.engine('.html', require('ejs').__express);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'html');
-
-app.set('title', '<%= applicationName %>');
+mustlayout.engine(app, {
+  engine: require('hogan-express'),
+  ext: '.html',
+  views: 'src/server/views',
+  layouts: 'src/server/views/layouts',
+  partials: 'src/server/views/partials',
+  cache: 'src/server/views/cache'
+});
 
 // app.use(favicon(__dirname + '/public/img/favicon.ico'));
 app.use(logger('dev')); // log all requests
@@ -21,14 +25,13 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(cookieParser());
-app.locals.bundle = require(path.join(__dirname, '../../bundle.result.json'));
+
+// variables available on every view model
+app.set('title', 'application');
+app.set('bundle', require(path.join(__dirname, '../../bundle.result.json')));
 
 app.use('/public', express.static(path.join(__dirname, '../../public')));
 app.use('/', routes);
-
-if (app.get('env') === 'development') {
-  app.locals.pretty = true;
-}
 
 /// catch 404 and forward to error handler
 app.use(function (req, res, next) {

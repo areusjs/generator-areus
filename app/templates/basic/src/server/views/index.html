@@ -1,9 +1,9 @@
-<% include header.html %>
+{{!< main.html }}
 
+{{: body }}
 <div class="container">
-  <h1><%= settings.title %></h1>
+  <h1>{{ settings.title }}</h1>
 
-  <p>Welcome to <%= settings.title %></p>
+  <p>Welcome to {{ settings.title }}</p>
 </div>
-
-<% include footer.html %>
+{{/ body }}
