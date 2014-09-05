@@ -45,6 +45,7 @@ var AppGenerator = yeoman.generators.Base.extend({
     this.prompt(prompts, function (props) {
       this.applicationName = props.applicationName;
       this.isPublic = props.isPublic;
+      this.yourName = props.yourName;
 
       done();
     }.bind(this));
