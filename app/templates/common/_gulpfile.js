@@ -5,17 +5,27 @@ var gulp = require('gulp'),
   options = {
     paths: {
       lint: [
-          srcSrvPath + '/**/*.js'
+          srcSrvPath + '/**/*.js',
+        './*.js'
       ],
       felint: [
           srcClientPath + '/**/*.js'
       ],
       cover: [
-          srcSrvPath + '/**/*.js'
+          srcSrvPath + '/**/*.js',
+        './server.js'
       ],
       test: [
         './test/**/*.js'
       ]
+    },
+    coverageSettings: {
+      thresholds: {
+        statements: 100,
+        branches: 66,
+        lines: 100,
+        functions: 100
+      }
     }
   };
 

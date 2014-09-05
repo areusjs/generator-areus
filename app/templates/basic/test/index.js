@@ -12,6 +12,14 @@ describe('index', function () {
       .expect(200, done);
   });
 
+  it('should return 200 from _health', function (done) {
+    var app = require(srvPath)();
+    request(app)
+      .get('/_health')
+      .expect('Content-Type', /text\/plain/)
+      .expect(200, done);
+  });
+
   it('should show error page', function (done) {
     var app = require(srvPath)();
     request(app)

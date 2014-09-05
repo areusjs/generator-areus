@@ -1,5 +1,5 @@
 var log = require('./src/server/console-log'),
-  app = require('./src/server');
+  app = require('./src/server')();
 
 app.set('port', process.env.PORT || 3000);
 
