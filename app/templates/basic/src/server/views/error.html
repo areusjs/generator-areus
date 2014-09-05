@@ -7,9 +7,9 @@
 </head>
 <body>
 
-<h1>{{ error.status || 'ERROR' }}</h1>
+<h1>{{ status }}</h1>
 <pre>
-{{ error.message }}
+{{ message }}
 </pre>
 {{#error.stack}}
 <h3>Stack</h3>

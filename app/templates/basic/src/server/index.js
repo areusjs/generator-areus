@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var mustlayout = require('mustlayout');
 
-module.exports = function() {
+module.exports = function () {
   var app = express();
 
   mustlayout.engine(app, {
@@ -28,7 +28,7 @@ module.exports = function() {
   app.use(cookieParser());
 
   // variables available on every view model
-  app.set('title', 'application');
+  app.set('title', '<%= applicationName %>');
   app.set('bundle', require(path.join(__dirname, '../../bundle.result.json')));
 
   app.use('/public', express.static(path.join(__dirname, '../../public')));
@@ -44,17 +44,23 @@ module.exports = function() {
   // will print stacktrace
   if (app.get('env') === 'development') {
     app.use(function (err, req, res, next) {
-      res.status(err.status || 500);
+      err.status = err.status || 500;
+      res.status(err.status);
       res.render('error', {
+        status: err.status,
+        message: err.message || 'Internal Server Error',
         error: err
       });
     });
   } else {
     // no stacktraces leaked to user
     app.use(function (err, req, res, next) {
-      res.status(err.status || 500);
+      err.status = err.status || 500;
+      res.status(err.status);
       res.render('error', {
-        error: err
+        status: err.status,
+        message: err.message || 'Internal Server Error',
+        error: {}
       });
     });
   }

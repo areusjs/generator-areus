@@ -22,7 +22,7 @@ var gulp = require('gulp'),
     coverageSettings: {
       thresholds: {
         statements: 100,
-        branches: 66,
+        branches: 60,
         lines: 100,
         functions: 100
       }
