@@ -32,7 +32,14 @@ describe('app:app', function () {
       'package.json',
       'readme.md',
       'server.js',
-      'servo.json'
+      'servo.json',
+      'bin/git-init.js',
+      'src/server/index.js',
+      'src/server/routes/index.js',
+      'src/server/views/index.html',
+      'src/client/scripts/app.js',
+      'src/client/styles/main.less',
+      'test/index.js'
     ]);
   });
 });
