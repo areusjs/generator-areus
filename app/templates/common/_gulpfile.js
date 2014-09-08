@@ -41,7 +41,8 @@ gulp.task('develop', 'Watch and restart server on change', ['build', 'watch'], f
       'bower_components/*',
       'node_modules/*',
       'public/*',
-      'src/client/*'
+      'src/client/*',
+      'src/server/views/cache/*' // mustlayout view cache
     ]
   })
     .on('change', ['ci-watch'])

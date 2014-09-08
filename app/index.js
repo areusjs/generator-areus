@@ -40,20 +40,12 @@ var AppGenerator = yeoman.generators.Base.extend({
         name: 'yourName',
         message: 'Your name?',
         required: true
-      },
-      {
-        type: 'confirm',
-        name: 'isPublic',
-        message: 'Is public?',
-        default: true,
-        required: true
       }
     ];
 
     this.prompt(prompts, function (props) {
       this.applicationName = props.applicationName || 'application';
       this.yourName = props.yourName;
-      this.isPublic = props.isPublic;
 
       done();
     }.bind(this));

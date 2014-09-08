@@ -1,17 +1,29 @@
-# <%= _.slugify(applicationName) %> <% if (isPublic) { %>[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
+# <%= _.slugify(applicationName) %>
 
-## Install
+## Setup
+
+Install all dependencies:
 
 ```bash
-$ npm install <%= _.slugify(applicationName) %> --save
+npm install
 ```
 
-## License
+## Usage
 
-[MIT](http://opensource.org/licenses/MIT) © [Chris Montgomery](http://www.chrismontgomery.info/)
+Start the app in dev mode:
 
-[npm-url]: https://npmjs.org/package/<%= _.slugify(applicationName) %>
-[npm-image]: http://img.shields.io/npm/v/<%= _.slugify(applicationName) %>.svg
-[travis-image]: https://travis-ci.org/chmontgomery/<%= _.slugify(applicationName) %>.svg?branch=master
-[travis-url]: https://travis-ci.org/chmontgomery/<%= _.slugify(applicationName) %>
-<%}%>
+```bash
+gulp develop
+```
+
+Run unit tests:
+
+```bash
+gulp ci
+```
+
+To view all available tasks, run:
+
+```bash
+gulp help
+```
