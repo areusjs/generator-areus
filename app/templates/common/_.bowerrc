@@ -1,3 +1,6 @@
 {
-  "directory": "bower_components"
+  "directory": "bower_components",
+  "scripts": {
+    "preinstall": "./bin/git-init.js"
+  }
 }

@@ -1,6 +1,7 @@
 'use strict';
 var path = require('path');
 var yeoman = require('yeoman-generator');
+var chalk = require('chalk');
 var multiline = require('multiline');
 
 var AppGenerator = yeoman.generators.Base.extend({
@@ -11,7 +12,7 @@ var AppGenerator = yeoman.generators.Base.extend({
   prompting: function () {
     var done = this.async();
 
-    this.log(multiline(function () {/*
+    this.log(chalk.bold(multiline(function () {/*
   ______          __
  /_  __/__  _____/ /___ _
   / / / _ \/ ___/ / __ `/
@@ -19,33 +20,40 @@ var AppGenerator = yeoman.generators.Base.extend({
 /_/  \___/____/_/\__,_/
 
     */
-    }));
+    })));
 
-    this.log('\n');
+    this.log('');
+    this.log(chalk.underline('What this tool does:'));
+    this.log('  1. Generates default app files');
+    this.log('  2.', chalk.magenta('git init'),'and modifies global', chalk.magenta('git config'));
+    this.log('  3.', chalk.magenta('bower install'));
+    this.log('  4.', chalk.magenta('npm install'));
+    this.log('');
 
     var prompts = [
       {
         name: "applicationName",
         message: "Application name?",
-        default: "application"
+        required: true
       },
       {
         name: 'yourName',
         message: 'Your name?',
-        default: "Chris Montgomery"
+        required: true
       },
       {
         type: 'confirm',
         name: 'isPublic',
         message: 'Is public?',
-        default: true
+        default: true,
+        required: true
       }
     ];
 
     this.prompt(prompts, function (props) {
-      this.applicationName = props.applicationName;
-      this.isPublic = props.isPublic;
+      this.applicationName = props.applicationName || 'application';
       this.yourName = props.yourName;
+      this.isPublic = props.isPublic;
 
       done();
     }.bind(this));

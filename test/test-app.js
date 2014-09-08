@@ -12,16 +12,27 @@ describe('app:app', function () {
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withOptions({ 'skip-install': true })
       .withPrompt({
-        someOption: true
+        applicationName: 'application',
+        yourName: 'Chris',
+        isPublic: true
       })
       .on('end', done);
   });
 
   it('creates files', function () {
     assert.file([
+      '.bowerrc',
+      '.editorconfig',
+      '.gitattributes',
+      '.gitignore',
+      '.npmignore',
       'bower.json',
+      'bundle.config.js',
+      'gulpfile.js',
       'package.json',
-      '.editorconfig'
+      'readme.md',
+      'server.js',
+      'servo.json'
     ]);
   });
 });
