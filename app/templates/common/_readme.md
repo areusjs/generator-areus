@@ -2,7 +2,7 @@
 
 ## Setup
 
-Install all dependencies:
+Install all dependencies
 
 ```bash
 npm install
@@ -10,19 +10,19 @@ npm install
 
 ## Usage
 
-Start the app in dev mode:
+Start the app in dev mode
 
 ```bash
 gulp develop
 ```
 
-Run unit tests:
+Run all CI validation (unit tests, lint, etc)
 
 ```bash
 gulp ci
 ```
 
-To view all available tasks, run:
+For all other available tasks, run
 
 ```bash
 gulp help
