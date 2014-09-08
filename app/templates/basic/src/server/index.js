@@ -1,11 +1,12 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
-var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
+var errorHandler = require('./routes/error');
 var mustlayout = require('mustlayout');
+var requestLogger = require('./lib/request-logger');
 
 module.exports = function () {
   var app = express();
@@ -20,7 +21,7 @@ module.exports = function () {
   });
 
   // app.use(favicon(__dirname + '/public/img/favicon.ico'));
-  app.use(logger('dev')); // log all requests
+  app.use(requestLogger()); // log all requests
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({
     extended: true
@@ -34,34 +35,23 @@ module.exports = function () {
   app.use('/public', express.static(path.join(__dirname, '../../public')));
   app.use('/', routes);
 
-  /// catch 404 and forward to error handler
+  // catch 404 and forward to error handler
   app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
   });
 
-  // will print stacktrace
   if (app.get('env') === 'development') {
-    app.use(function (err, req, res, next) {
-      err.status = err.status || 500;
-      res.status(err.status);
-      res.render('error', {
-        status: err.status,
-        message: err.message || 'Internal Server Error',
-        error: err
-      });
-    });
+    // will print stacktrace
+    app.use(errorHandler);
   } else {
     // no stacktraces leaked to user
     app.use(function (err, req, res, next) {
-      err.status = err.status || 500;
-      res.status(err.status);
-      res.render('error', {
+      errorHandler({
         status: err.status,
-        message: err.message || 'Internal Server Error',
-        error: {}
-      });
+        message: err.message
+      }, req, res, next);
     });
   }
 

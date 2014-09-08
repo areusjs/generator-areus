@@ -1,6 +1,6 @@
-var bunyan = require('bunyan');
-var log = bunyan.createLogger({name: '<%= _.slugify(applicationName) %>'});
-var app = require('./src/server')();
+var srvPath = './src/server';
+var log = require(srvPath + '/lib/logger');
+var app = require(srvPath)();
 
 app.set('port', process.env.PORT || 3000);
 
