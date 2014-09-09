@@ -49,7 +49,7 @@ gulp.task('develop', 'Watch and restart server on change', ['build', 'watch'], f
       'src/views/cache/*' // mustlayout view cache
     ]
   })
-    .on('change', ['ci-watch'])
+    //.on('change', ['ci-watch'])
     .on('restart', function () {
       var d = new Date();
       console.log(require('gulp-util').colors.bgBlue('server restarted at ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()));
