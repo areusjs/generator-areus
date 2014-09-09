@@ -18,3 +18,5 @@ npm link
 ```bash
 yo tesla
 ```
+
+Once generation is complete, open the generated readme.md for instructions on how to use the app.
