@@ -27,6 +27,7 @@
     "moment": "2.8.2",
     "morgan": "1.3.0",
     "mustlayout": "git://github.com/chmontgomery/mustlayout.git#feature/logging",
+    "nconf": "0.6.9",
     "serve-favicon": "2.0.1"
   },
   "devDependencies": {

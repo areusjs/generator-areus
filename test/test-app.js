@@ -34,11 +34,11 @@ describe('app:app', function () {
       'server.js',
       'servo.json',
       'bin/git-init.js',
-      'src/server/index.js',
-      'src/server/routes/index.js',
-      'src/server/views/index.html',
-      'src/client/scripts/app.js',
-      'src/client/styles/main.less',
+      'src/index.js',
+      'src/routes/index.js',
+      'src/views/index.html',
+      'src/public/scripts/app.js',
+      'src/public/styles/main.less',
       'test/index.js'
     ]);
   });
