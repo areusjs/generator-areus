@@ -23,11 +23,14 @@ var AppGenerator = yeoman.generators.Base.extend({
     })));
 
     this.log('');
-    this.log(chalk.underline('What this tool does:'));
-    this.log('  1. Generates default app files');
+    this.log(chalk.underline('What this tool does'));
+    this.log('  1. Generates a full app folder structure with default files');
     this.log('  2.', chalk.magenta('git init'),'and modifies global', chalk.magenta('git config'));
     this.log('  3.', chalk.magenta('bower install'));
     this.log('  4.', chalk.magenta('npm install'));
+    this.log('');
+    this.log(chalk.underline('Notes'));
+    this.log('Once complete, open the generated', chalk.magenta('readme.md'), 'for instructions on how to use the app.');
     this.log('');
 
     var prompts = [
