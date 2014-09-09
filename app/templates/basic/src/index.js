@@ -14,10 +14,10 @@ module.exports = function () {
   mustlayout.engine(app, {
     engine: require('hogan-express'),
     ext: '.html',
-    views: 'src/server/views',
-    layouts: 'src/server/views/layouts',
-    partials: 'src/server/views/partials',
-    cache: 'src/server/views/cache'
+    views: 'src/views',
+    layouts: 'src/views/layouts',
+    partials: 'src/views/partials',
+    cache: 'src/views/cache'
   });
 
   // app.use(favicon(__dirname + '/public/img/favicon.ico'));
@@ -30,9 +30,9 @@ module.exports = function () {
 
   // variables available on every view model
   app.set('title', '<%= applicationName %>');
-  app.set('bundle', require(path.join(__dirname, '../../bundle.result.json')));
+  app.set('bundle', require(path.join(__dirname, '../bundle.result.json')));
 
-  app.use('/public', express.static(path.join(__dirname, '../../public')));
+  app.use('/public', express.static(path.join(__dirname, '../public')));
   app.use('/', routes);
 
   // catch 404 and forward to error handler

@@ -1,20 +1,24 @@
 var gulp = require('gulp'),
-  srcClientPath = './src/client',
-  srcSrvPath = './src/server',
+  srcPath = './src',
+  srcPublicPath = srcPath + '/public',
   publicPath = './public',
+  srcJs = [
+      srcPath + '/lib/**/*.js',
+      srcPath + '/models/**/*.js',
+      srcPath + '/routes/**/*.js',
+      srcPath + '/*.js'
+  ],
   options = {
     paths: {
       lint: [
-          srcSrvPath + '/**/*.js',
         './*.js'
-      ],
+      ].concat(srcJs),
       felint: [
-          srcClientPath + '/**/*.js'
+          srcPublicPath + '/**/*.js'
       ],
       cover: [
-          srcSrvPath + '/**/*.js',
         './server.js'
-      ],
+      ].concat(srcJs),
       test: [
         './test/**/*.js'
       ]
@@ -41,8 +45,8 @@ gulp.task('develop', 'Watch and restart server on change', ['build', 'watch'], f
       'bower_components/*',
       'node_modules/*',
       'public/*',
-      'src/client/*',
-      'src/server/views/cache/*' // mustlayout view cache
+      'src/public/*',
+      'src/views/cache/*' // mustlayout view cache
     ]
   })
     .on('change', ['ci-watch'])
@@ -60,7 +64,7 @@ gulp.task('clean', 'Clean all assets out of /public', function () {
 gulp.task('watch', 'Watch assets and build on change', function () {
   var livereload = require('gulp-livereload'),
     server = livereload();
-  gulp.watch([srcClientPath + '/**/*.*'], ['bundle']); // only watch client files
+  gulp.watch([srcPublicPath + '/**/*.*'], ['bundle']); // only watch client files
   gulp.watch([publicPath + '/**/*.*']).on('change', function (file) {
     server.changed(file.path);
   });

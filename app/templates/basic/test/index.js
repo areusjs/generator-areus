@@ -1,4 +1,4 @@
-var srvPath = '../src/server',
+var srvPath = '../src',
   should = require('should'),
   request = require('supertest');
 

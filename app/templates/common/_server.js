@@ -1,6 +1,6 @@
-var srvPath = './src/server';
-var log = require(srvPath + '/lib/logger');
-var app = require(srvPath)();
+var srcPath = './src';
+var log = require(srcPath + '/lib/logger');
+var app = require(srcPath)();
 
 app.set('port', process.env.PORT || 3000);
 
