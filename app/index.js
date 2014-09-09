@@ -38,7 +38,7 @@ var AppGenerator = yeoman.generators.Base.extend({
       },
       {
         name: 'yourName',
-        message: 'Your name?',
+        message: 'Author name?',
         required: true
       }
     ];
