@@ -1,7 +1,7 @@
 var less = require('gulp-less'),
   lazypipe = require('lazypipe'),
   gif = require('gulp-if'),
-  srcPath = './src/client';
+  srcPath = './src/public';
 
 function stringEndsWith(str, suffix) {
   return str.indexOf(suffix, str.length - suffix.length) !== -1;
