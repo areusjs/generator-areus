@@ -36,7 +36,13 @@ var gulp = require('gulp'),
 require('load-common-gulp-tasks')(gulp, options);
 
 // do a clean and build when first starting up
-gulp.task('develop', 'Watch and restart server on change', ['build', 'watch'], function () {
+gulp.task('develop', 'Watch and restart server on change', function (cb) {
+  require('run-sequence')('build',
+    ['nodemon', 'watch'],
+    cb);
+});
+
+gulp.task('nodemon', false, function (cb) {
   var nodemon = require('gulp-nodemon');
   nodemon({
     script: 'bin/www',
@@ -54,6 +60,7 @@ gulp.task('develop', 'Watch and restart server on change', ['build', 'watch'], f
       var d = new Date();
       console.log(require('gulp-util').colors.bgBlue('server restarted at ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()));
     });
+  cb();
 });
 
 gulp.task('clean', 'Clean all assets out of /public', function () {
@@ -61,13 +68,14 @@ gulp.task('clean', 'Clean all assets out of /public', function () {
     .pipe(require('gulp-rimraf')());
 });
 
-gulp.task('watch', 'Watch assets and build on change', function () {
+gulp.task('watch', 'Watch assets and build on change', function (cb) {
   var livereload = require('gulp-livereload'),
     server = livereload();
   gulp.watch([srcPublicPath + '/**/*.*'], ['bundle']); // only watch client files
   gulp.watch([publicPath + '/**/*.*']).on('change', function (file) {
     server.changed(file.path);
   });
+  cb();
 });
 
 function bundle() {
