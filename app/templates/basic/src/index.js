@@ -1,10 +1,10 @@
 var express = require('express');
 var path = require('path');
+var glob = require('glob');
 var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var routes = require('./routes/index');
-var errorHandler = require('./routes/error');
+var errorHandler = require('./lib/error-handler');
 var mustlayout = require('mustlayout');
 var requestLogger = require('./lib/request-logger');
 
@@ -32,8 +32,15 @@ module.exports = function () {
   app.set('title', '<%= applicationName %>');
   app.set('bundle', require(path.join(__dirname, '../bundle.result.json')));
 
+  // make all static files available under /public route
   app.use('/public', express.static(path.join(__dirname, '../public')));
-  app.use('/', routes);
+
+  // dynamically load all routes
+  var controllersPath = path.join(__dirname, 'controllers');
+  var controllers = glob.sync(controllersPath + '/*.js');
+  controllers.forEach(function (controller) {
+    require(controller)(app);
+  });
 
   // catch 404 and forward to error handler
   app.use(function (req, res, next) {
