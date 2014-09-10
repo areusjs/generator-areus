@@ -20,7 +20,7 @@ module.exports = function () {
     cache: 'src/views/cache'
   });
 
-  // app.use(favicon(__dirname + '/public/img/favicon.ico'));
+  // app.use(favicon(__dirname + '/public/images/favicon.ico'));
   app.use(requestLogger()); // log all requests
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({
