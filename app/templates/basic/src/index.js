@@ -4,6 +4,7 @@ var glob = require('glob');
 var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var compression = require('compression');
 var errorHandler = require('./lib/error-handler');
 var mustlayout = require('mustlayout');
 var requestLogger = require('./lib/request-logger');
@@ -27,6 +28,7 @@ module.exports = function () {
     extended: true
   }));
   app.use(cookieParser());
+  app.use(compression());
 
   // variables available on every view model
   app.set('title', '<%= applicationName %>');
