@@ -1,7 +1,8 @@
 var path = require('path'),
   fs = require('fs'),
   nconf = require('nconf'),
-  log = require('./logger');
+  log = require('./logger'),
+  DEV_ENV = 'development';
 
 /**
  * Will use environment specific properties based off NODE_ENV, for example:
@@ -18,14 +19,16 @@ var path = require('path'),
  * @constructor
  */
 function PropertyService() {
-  var nodeEnv = (process.env.NODE_ENV || 'development');
+  var nodeEnv = (process.env.NODE_ENV || DEV_ENV);
   var configPath = path.join(__dirname, '../../config/' + nodeEnv + '.json');
 
-  fs.exists(configPath, function (exists) {
-    if (!exists) {
-      log.warn('Failed to load config for NODE_ENV=' + nodeEnv + '. File not found: ' + configPath);
-    }
-  });
+  if (nodeEnv !== DEV_ENV) {
+    fs.exists(configPath, function (exists) {
+      if (!exists) {
+        log.warn('Failed to load config for NODE_ENV=' + nodeEnv + '. File not found: ' + configPath);
+      }
+    });
+  }
 
   this._properties = nconf
     .argv()
