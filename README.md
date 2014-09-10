@@ -1,6 +1,13 @@
 # generator-tesla
 
-Scaffolding tool for quickly generating a new [express.js](http://expressjs.com/) app with logical defaults.
+Opinionated scaffolding tool for quickly generating a new [express.js](http://expressjs.com/) app with logical defaults.
+The major architecture pieces include:
+
+1. [express.js](http://expressjs.com/) - routing
+1. [mustlayout](https://github.com/mytharcher/mustlayout) - view engine
+1. [gulp.js](http://gulpjs.com/) - task manager
+1. [bunyan](https://github.com/trentm/node-bunyan) - logging
+1. [nconf](https://github.com/flatiron/nconf) - configuration
 
 ## Install
 
