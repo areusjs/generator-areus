@@ -66,7 +66,8 @@ var AppGenerator = yeoman.generators.Base.extend({
   },
 
   end: function () {
-    this.installDependencies();
+    // npm will launch the bower install
+    this.npmInstall();
   }
 });
 

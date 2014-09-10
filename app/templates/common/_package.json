@@ -5,8 +5,8 @@
   "scripts": {
     "start": "node server.js",
     "test": "gulp ci",
-    "preinstall": "bower install",
-    "postinstall": "gulp bundle"
+    "preinstall": "git init && git config --global url.'https://'.instead of git://",
+    "postinstall": "bower install && gulp bundle"
   },
   "author": {
     "name": "<%= yourName %>"
