@@ -46,13 +46,12 @@ gulp.task('nodemon', false, function (cb) {
   var nodemon = require('gulp-nodemon');
   nodemon({
     script: 'bin/www',
-    ext: 'html js',
+    ext: 'dust js',
     ignore: [ // only watch server files
       'bower_components/*',
       'node_modules/*',
       'public/*',
-      'src/public/*',
-      'src/views/cache/*' // mustlayout view cache
+      'src/public/*'
     ]
   })
     //.on('change', ['ci-watch'])

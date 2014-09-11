@@ -1,0 +1,9 @@
+{>"layouts/main"/}
+
+{<body}
+<div class="container">
+  <h1>{settings.title}</h1>
+
+  <p>Welcome to {settings.title}</p>
+</div>
+{/body}

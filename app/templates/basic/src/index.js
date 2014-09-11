@@ -5,21 +5,18 @@ var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compression = require('compression');
+var dust = require('dustjs-linkedin');
+var cons = require('consolidate');
 var errorHandler = require('./lib/error-handler');
-var mustlayout = require('mustlayout');
 var requestLogger = require('./lib/request-logger');
 
 module.exports = function () {
   var app = express();
 
-  mustlayout.engine(app, {
-    engine: require('hogan-express'),
-    ext: '.html',
-    views: 'src/views',
-    layouts: 'src/views/layouts',
-    partials: 'src/views/partials',
-    cache: 'src/views/cache'
-  });
+  var template_engine = 'dust';
+  app.engine(template_engine, cons.dust);
+  app.set('views', __dirname + '/views');
+  app.set('view engine', template_engine);
 
   // app.use(favicon(__dirname + '/public/images/favicon.ico'));
   app.use(requestLogger()); // log all requests

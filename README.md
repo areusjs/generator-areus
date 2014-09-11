@@ -4,7 +4,7 @@ Opinionated scaffolding tool for quickly generating a new [express.js](http://ex
 The major architecture pieces include:
 
 1. [express.js](http://expressjs.com/) - routing
-1. [mustlayout](https://github.com/mytharcher/mustlayout) - view engine
+1. [dustjs](http://linkedin.github.io/dustjs/) - view engine
 1. [gulp.js](http://gulpjs.com/) - task manager
 1. [bunyan](https://github.com/trentm/node-bunyan) - logging
 1. [nconf](https://github.com/flatiron/nconf) - configuration

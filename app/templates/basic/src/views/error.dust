@@ -7,16 +7,16 @@
 </head>
 <body>
 
-<h1>{{ status }}</h1>
+<h1>{status}</h1>
 <pre>
-{{ message }}
+{message}
 </pre>
-{{#error.stack}}
+{#error.stack}
 <h3>Stack</h3>
 <pre>
-{{ error.stack }}
+{error.stack}
 </pre>
-{{/error.stack}}
+{/error.stack}
 
 </body>
 </html>
