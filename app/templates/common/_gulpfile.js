@@ -1,4 +1,7 @@
 var gulp = require('gulp'),
+  argv = require('yargs').argv,
+  path = require('path'),
+  spawn = require('child_process').spawn,
   srcPath = './src',
   srcPublicPath = srcPath + '/public',
   publicPath = './public',
@@ -40,24 +43,38 @@ gulp.task('develop', 'Watch and restart server on change', function (cb) {
   require('run-sequence')('build',
     ['nodemon', 'watch'],
     cb);
+}, {
+  options: {
+    'debug': 'Start in debug mode'
+  }
 });
 
 gulp.task('nodemon', false, function (cb) {
   var nodemon = require('gulp-nodemon');
-  nodemon({
-    script: 'bin/www',
+  var bunyan = spawn('node', [path.join(__dirname, 'node_modules/bunyan/bin/bunyan')], { stdio: ['pipe', process.stdout, process.stderr] });
+
+  var nodemonOpts = {
+    script: 'server.js',
     ext: 'dust js',
     ignore: [ // only watch server files
       'bower_components/*',
       'node_modules/*',
       'public/*',
       'src/public/*'
-    ]
-  })
-    //.on('change', ['ci-watch'])
+    ],
+    stdout: false
+  };
+  if (argv.debug) {
+    nodemonOpts.nodeArgs = ['--debug'];
+  }
+  nodemon(nodemonOpts)
     .on('restart', function () {
       var d = new Date();
       console.log(require('gulp-util').colors.bgBlue('server restarted at ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()));
+    })
+    .on('readable', function() {
+      this.stdout.pipe(bunyan.stdin);
+      this.stderr.pipe(bunyan.stdin);
     });
   cb();
 });
