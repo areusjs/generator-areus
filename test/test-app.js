@@ -6,15 +6,18 @@ var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 var os = require('os');
 
-describe('app:app', function () {
+describe('tesla app', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../app'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
-      .withOptions({ 'skip-install': true })
+      .withOptions({
+        npm: false,
+        bower: false,
+        skipInstall: true
+      })
       .withPrompt({
         applicationName: 'application',
-        yourName: 'Chris',
-        isPublic: true
+        yourName: 'Chris'
       })
       .on('end', done);
   });
@@ -33,10 +36,9 @@ describe('app:app', function () {
       'readme.md',
       'server.js',
       'servo.json',
-      'bin/git-init.js',
       'src/index.js',
-      'src/routes/index.js',
-      'src/views/index.html',
+      'src/controllers/index.js',
+      'src/views/index.dust',
       'src/public/scripts/app.js',
       'src/public/styles/main.less',
       'test/index.js'
