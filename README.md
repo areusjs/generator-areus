@@ -11,11 +11,11 @@ The major architecture pieces include:
 
 ## Install
 
+Requires [node.js and npm](http://nodejs.org/download/)
+
 ```bash
-npm install -g yo
-git clone https://github.dowjones.net/montgomeryc/generator-tesla.git
-cd generator-tesla
-npm link
+npm config set registry http://registry.npm.wsjfdev.dowjones.net/
+npm install -g yo generator-tesla
 ```
 
 ## Usage
