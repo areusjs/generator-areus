@@ -4,8 +4,7 @@
   "description": "",
   "scripts": {
     "start": "node index.js",
-    "test": "gulp ci",
-    "preinstall": "git init && git config --global url.\"https://\".insteadOf git://"
+    "test": "gulp ci"
   },
   "author": {
     "name": "<%= yourName %>"
