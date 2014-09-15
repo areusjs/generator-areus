@@ -1,4 +1,3 @@
-.travis.yml
 readme.md
 /gulpfile.js
 /test/
@@ -8,4 +7,3 @@ readme.md
 *.orig
 /target/coverage
 .coveralls.yml
-/bower_components/

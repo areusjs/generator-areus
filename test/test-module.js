@@ -6,15 +6,15 @@ var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 var os = require('os');
 
-describe('tesla:app', function () {
+describe('tesla:module', function () {
   beforeEach(function (done) {
-    helpers.run(path.join(__dirname, '../app'))
+    helpers.run(path.join(__dirname, '../module'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withOptions({
         'skip-install': true
       })
       .withPrompt({
-        applicationName: 'My Application',
+        moduleName: 'tesla-module',
         yourName: 'Chris M'
       })
       .on('end', done);
@@ -22,24 +22,14 @@ describe('tesla:app', function () {
 
   it('creates files', function () {
     assert.file([
-      '.bowerrc',
       '.editorconfig',
       '.gitattributes',
       '.gitignore',
       '.npmignore',
-      'bower.json',
-      'bundle.config.js',
       'gulpfile.js',
       'package.json',
       'readme.md',
-      'server.js',
-      'servo.json',
-      'src/index.js',
-      'src/controllers/index.js',
-      'src/views/index.dust',
-      'src/public/scripts/app.js',
-      'src/public/styles/main.less',
-      'test/index.js'
+      'index.js'
     ]);
   });
 });

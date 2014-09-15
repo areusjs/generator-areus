@@ -5,4 +5,3 @@ node_modules/
 /target/coverage
 /public
 bundle.result.json
-/src/views/cache/

@@ -1,0 +1,27 @@
+{
+  "name": "<%= _.slugify(moduleName) %>",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node index.js",
+    "test": "gulp ci",
+    "preinstall": "git init && git config --global url.\"https://\".insteadOf git://"
+  },
+  "author": {
+    "name": "<%= yourName %>"
+  },
+  "contributors": [
+    {
+      "name": "<%= yourName %>"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "gulp": "3.8.7",
+    "load-common-gulp-tasks": "0.3.2",
+    "should": "4.0.4",
+    "sinon": "1.10.3"
+  }
+}

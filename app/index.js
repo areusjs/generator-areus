@@ -3,6 +3,7 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var multiline = require('multiline');
+var generatorUtils = require('../lib/utils.js');
 
 var AppGenerator = yeoman.generators.Base.extend({
   initializing: function () {
@@ -47,7 +48,10 @@ var AppGenerator = yeoman.generators.Base.extend({
     ];
 
     this.prompt(prompts, function (props) {
-      this.applicationName = props.applicationName || 'application';
+      if (!props.applicationName) {
+        throw new Error('application name is required.')
+      }
+      this.applicationName = props.applicationName;
       this.yourName = props.yourName;
 
       done();
@@ -56,18 +60,20 @@ var AppGenerator = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      this.sourceRoot(path.join(__dirname, 'templates', 'common'));
-      this.expandFiles('**', { cwd: this.sourceRoot() }).map(function (file) {
-        this.template(file, file.replace(/^_/, ''));
-      }, this);
-      this.sourceRoot(path.join(__dirname, 'templates', 'basic'));
-      this.directory('.', '.');
+      this.sourceRoot(path.join(__dirname, '../common/templates'));
+      generatorUtils.processDirectory(this, '.', '.');
+      this.sourceRoot(path.join(__dirname, 'templates/common'));
+      generatorUtils.processDirectory(this, '.', '.');
+      this.sourceRoot(path.join(__dirname, 'templates/basic'));
+      generatorUtils.processDirectory(this, '.', '.');
     }
   },
 
   end: function () {
-    // npm will launch the bower install
-    this.npmInstall();
+    this.installDependencies({
+      bower: false,
+      skipInstall: this.options['skip-install']
+    });
   }
 });
 
