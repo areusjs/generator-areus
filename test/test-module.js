@@ -6,7 +6,7 @@ var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 var os = require('os');
 
-describe('tesla:module', function () {
+describe('areus:module', function () {
   beforeEach(function (done) {
     helpers.run(path.join(__dirname, '../module'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
@@ -14,7 +14,7 @@ describe('tesla:module', function () {
         'skip-install': true
       })
       .withPrompt({
-        moduleName: 'tesla-module',
+        moduleName: 'areus-module',
         yourName: 'Chris M'
       })
       .on('end', done);

@@ -1,12 +1,12 @@
 {
-  "name": "generator-tesla",
+  "name": "generator-areus",
   "version": "0.0.4",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/montgomeryc/generator-tesla"
+    "url": "https://github.com/areus/generator-areus"
   },
   "author": "Chris Montgomery (https://github.com/chmontgomery)",
   "engines": {
@@ -31,9 +31,9 @@
     "mocha": "*"
   },
   "bugs": {
-    "url": "https://github.com/montgomeryc/generator-tesla/issues"
+    "url": "https://github.com/areus/generator-areus/issues"
   },
-  "homepage": "https://github.com/montgomeryc/generator-tesla",
+  "homepage": "https://github.com/areus/generator-areus",
   "directories": {
     "test": "test"
   }

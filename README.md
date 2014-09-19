@@ -1,4 +1,4 @@
-# generator-tesla
+# generator-areus
 
 Opinionated scaffolding tool for quickly generating a new [express.js](http://expressjs.com/) app with logical defaults.
 The major architecture pieces include:
@@ -15,7 +15,7 @@ Requires [node.js and npm](http://nodejs.org/download/)
 
 ```bash
 npm config set registry http://registry.npm.wsjfdev.dowjones.net/
-npm install -g yo generator-tesla
+npm install -g yo generator-areus
 ```
 
 ## Usage: App
@@ -23,7 +23,7 @@ npm install -g yo generator-tesla
 `cd` into the directory where you are going to generate your new app and then initiate the generator:
 
 ```bash
-yo tesla
+yo areus
 ```
 
 Once generation is complete, open the generated `readme.md` for instructions on how to use the app.
@@ -35,7 +35,7 @@ Generates a new *shared* module to be published to the npm registry and shared b
 `cd` into the directory where you are going to generate your new module and then initiate the generator:
 
 ```bash
-yo tesla:module
+yo areus:module
 ```
 
 Once generation is complete, you can reference it in your app locally using [`npm link`](https://www.npmjs.org/doc/cli/npm-link.html). 
