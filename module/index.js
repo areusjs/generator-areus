@@ -27,7 +27,8 @@ var AppGenerator = yeoman.generators.Base.extend({
     var prompts = [
       {
         name: "moduleName",
-        message: "Module name?"
+        message: "Module name?",
+        default: path.basename(process.cwd())
       },
       {
         name: 'yourName',
@@ -36,9 +37,6 @@ var AppGenerator = yeoman.generators.Base.extend({
     ];
 
     this.prompt(prompts, function (props) {
-      if (!props.moduleName) {
-        throw new Error('module name is required.')
-      }
       this.moduleName = props.moduleName;
       this.yourName = props.yourName;
 
