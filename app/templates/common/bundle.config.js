@@ -35,7 +35,11 @@ module.exports = {
       ],
       options: {
         useMin: ['min'],
-        rev: ['min']
+        rev: ['min'],
+        skipWatch: {
+          scripts: true,
+          styles: true
+        }
       }
     },
     main: {

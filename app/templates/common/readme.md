@@ -10,10 +10,10 @@ npm install
 
 ## Usage
 
-Start the app in dev mode
+Start the app in dev mode. This includes watching src files for changes and auto-restarting
 
 ```bash
-gulp develop
+gulp dev
 ```
 
 Run all CI validation (unit tests, lint, etc)
