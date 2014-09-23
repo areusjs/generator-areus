@@ -38,7 +38,8 @@ var AppGenerator = yeoman.generators.Base.extend({
       {
         name: "applicationName",
         message: "Application name?",
-        required: true
+        required: true,
+        default: path.basename(process.cwd())
       },
       {
         name: 'yourName',
@@ -48,9 +49,6 @@ var AppGenerator = yeoman.generators.Base.extend({
     ];
 
     this.prompt(prompts, function (props) {
-      if (!props.applicationName) {
-        throw new Error('application name is required.')
-      }
       this.applicationName = props.applicationName;
       this.yourName = props.yourName;
 
