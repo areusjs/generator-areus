@@ -36,9 +36,9 @@ module.exports = {
       options: {
         useMin: ['min'],
         rev: ['min'],
-        skipWatch: {
-          scripts: true,
-          styles: true
+        watch: {
+          scripts: false,
+          styles: false
         }
       }
     },
@@ -63,7 +63,7 @@ module.exports = {
       base: srcPath
     },
     {
-      src: "./bower_components/bootstrap/dist/fonts/*",
+      src: './bower_components/bootstrap/dist/fonts/*',
       base: './bower_components/bootstrap/dist/'
     }
   ]
