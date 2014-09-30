@@ -1,4 +1,4 @@
-# generator-areus
+# generator-areus [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 
 Opinionated scaffolding tool for quickly generating a new [express.js](http://expressjs.com/) app with logical defaults.
 The major architecture pieces include:
@@ -14,7 +14,6 @@ The major architecture pieces include:
 Requires [node.js and npm](http://nodejs.org/download/)
 
 ```bash
-npm config set registry http://registry.npm.wsjfdev.dowjones.net/
 npm install -g yo generator-areus
 ```
 
@@ -38,17 +37,13 @@ Generates a new *shared* module to be published to the npm registry and shared b
 yo areus:module
 ```
 
-Once generation is complete, you can reference it in your app locally using [`npm link`](https://www.npmjs.org/doc/cli/npm-link.html). 
+Once generation is complete, you can reference it in your app locally using [`npm link`](https://www.npmjs.org/doc/cli/npm-link.html).
 
-Once the module is ready, you can publish it to our internal npm registry using the following build `execute shell` step in jenkins:
+## License
 
-```bash
-date
-npm install . --color always
-date
-npm test
-date
-tesla-release show-version
-tesla-release release-only-dev
-date
-```
+[MIT](http://opensource.org/licenses/MIT) © [Chris Montgomery](http://www.chrismontgomery.info/)
+
+[npm-url]: https://npmjs.org/package/generator-areus
+[npm-image]: http://img.shields.io/npm/v/generator-areus.svg
+[travis-image]: https://travis-ci.org/areusjs/generator-areus.svg?branch=master
+[travis-url]: https://travis-ci.org/areusjs/generator-areus
