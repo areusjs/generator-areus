@@ -41,7 +41,7 @@ Once generation is complete, you can reference it in your app locally using [`np
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT) © [Chris Montgomery](http://www.chrismontgomery.info/)
+[MIT](http://opensource.org/licenses/MIT)
 
 [npm-url]: https://npmjs.org/package/generator-areus
 [npm-image]: http://img.shields.io/npm/v/generator-areus.svg
