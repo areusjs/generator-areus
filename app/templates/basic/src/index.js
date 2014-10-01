@@ -1,17 +1,32 @@
-var express = require('express');
-var path = require('path');
-var glob = require('glob');
-var favicon = require('serve-favicon');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var compression = require('compression');
-var dust = require('dustjs-linkedin');
-var cons = require('consolidate');
-var errorHandler = require('./lib/error-handler');
-var requestLogger = require('./lib/request-logger');
+var express = require('express'),
+  path = require('path'),
+  glob = require('glob'),
+  favicon = require('serve-favicon'),
+  cookieParser = require('cookie-parser'),
+  bodyParser = require('body-parser'),
+  compression = require('compression'),
+  dust = require('dustjs-linkedin'),
+  cons = require('consolidate'),
+  errorHandler = require('./lib/error-handler'),
+  requestLogger = require('./lib/request-logger'),
+  DI = require('areus-di'),
+  Resource = require('areus-http-resource'),
+  di = DI(__dirname),
+  resource = Resource(di, express.Router),
+  LRU = require('lru-cache'),
+  LRUPool = require('lru-cache-pool'),
+  logger = require('./lib/services/logger-service'),
+  config = require('./lib/services/property-service').getProperties();
 
 module.exports = function () {
   var app = express();
+
+  // define common services
+  di.provide({
+    config: config,
+    cache: LRUPool(LRU),
+    logger: logger
+  });
 
   var template_engine = 'dust';
   app.engine(template_engine, cons.dust);
@@ -34,12 +49,9 @@ module.exports = function () {
   // make all static files available under /public route
   app.use('/public', express.static(path.join(__dirname, '../public')));
 
-  // dynamically load all routes
-  var controllersPath = path.join(__dirname, 'controllers');
-  var controllers = glob.sync(controllersPath + '/*.js');
-  controllers.forEach(function (controller) {
-    require(controller)(app);
-  });
+  // attach top-level routes
+  app.use('/', resource('index'));
+  app.use('/_health', resource('health'));
 
   // catch 404 and forward to error handler
   app.use(function (req, res, next) {
