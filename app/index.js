@@ -58,12 +58,9 @@ var AppGenerator = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      this.sourceRoot(path.join(__dirname, '../common/templates'));
-      generatorUtils.processDirectory(this, '.', '.');
-      this.sourceRoot(path.join(__dirname, 'templates/common'));
-      generatorUtils.processDirectory(this, '.', '.');
-      this.sourceRoot(path.join(__dirname, 'templates/basic'));
-      generatorUtils.processDirectory(this, '.', '.');
+      generatorUtils.processDirectory(this, path.join(__dirname, '../common/templates'), '.');
+      generatorUtils.processDirectory(this, path.join(__dirname, 'templates/common'), '.');
+      generatorUtils.processDirectory(this, path.join(__dirname, 'templates/basic'), '.');
     }
   },
 
