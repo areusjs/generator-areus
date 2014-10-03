@@ -18,6 +18,12 @@
   "keywords": [
     "yeoman-generator"
   ],
+  "files": [
+    "app",
+    "common",
+    "lib",
+    "module"
+  ],
   "dependencies": {
     "chalk": "^0.5.1",
     "multiline": "^1.0.0",
