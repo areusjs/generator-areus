@@ -1,2 +1,8 @@
 /.idea
 /test
+.jshintrc
+.gitignore
+.gitattributes
+.editorconfig
+.travis.yml
+.npmignore
