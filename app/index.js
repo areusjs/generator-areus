@@ -3,7 +3,7 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var multiline = require('multiline');
-var generatorUtils = require(path.join(__dirname, '../lib/utils'));
+var generatorUtils = require(path.join(__dirname, './../lib/utils'));
 
 var AppGenerator = yeoman.generators.Base.extend({
   initializing: function () {
