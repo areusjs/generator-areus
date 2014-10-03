@@ -1,5 +1,2 @@
 /*.log
-/npm-shrinkwrap.json
-/target
-/views/*.js
 node_modules/
