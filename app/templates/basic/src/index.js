@@ -5,7 +5,6 @@ var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compression = require('compression');
-var dust = require('dustjs-linkedin');
 var cons = require('consolidate');
 var errorHandler = require('./lib/error-handler');
 var requestLogger = require('./lib/request-logger');
