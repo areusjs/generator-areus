@@ -46,11 +46,17 @@ var AppGenerator = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      this.sourceRoot(path.join(__dirname, '../common/templates'));
-      generatorUtils.processDirectory(this, '.', '.');
-      this.sourceRoot(path.join(__dirname, 'templates'));
-      generatorUtils.processDirectory(this, '.', '.');
+      generatorUtils.processDirectory(this, path.join(__dirname, 'templates'), '.');
     }
+  },
+
+  // some files don't get copied properly named as is (e.g. .gitignore) start name with _ and convert
+  packageFiles: function packageFiles() {
+    this.sourceRoot(path.join(__dirname, '../common/templates'));
+    this.template('_editorconfig', '.editorconfig');
+    this.template('_gitattributes', '.gitattributes');
+    this.template('_gitignore', '.gitignore');
+    this.template('_npmignore', '.npmignore');
   },
 
   end: function () {
