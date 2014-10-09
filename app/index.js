@@ -26,7 +26,7 @@ var AppGenerator = yeoman.generators.Base.extend({
     this.log('');
     this.log(chalk.underline('What this tool does'));
     this.log('  1. Generates a full app folder structure with default files');
-    this.log('  2.', chalk.magenta('git init'),'and modifies global', chalk.magenta('git config'));
+    this.log('  2.', chalk.magenta('git init'), 'and modifies global', chalk.magenta('git config'));
     this.log('  3.', chalk.magenta('bower install'));
     this.log('  4.', chalk.magenta('npm install'));
     this.log('');
@@ -58,10 +58,18 @@ var AppGenerator = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      generatorUtils.processDirectory(this, path.join(__dirname, '../common/templates'), '.');
       generatorUtils.processDirectory(this, path.join(__dirname, 'templates/common'), '.');
       generatorUtils.processDirectory(this, path.join(__dirname, 'templates/basic'), '.');
     }
+  },
+
+  // some files don't get copied properly named as is (e.g. .gitignore) start name with _ and convert
+  packageFiles: function packageFiles() {
+    this.sourceRoot(path.join(__dirname, '../common/templates'));
+    this.template('_editorconfig', '.editorconfig');
+    this.template('_gitattributes', '.gitattributes');
+    this.template('_gitignore', '.gitignore');
+    this.template('_npmignore', '.npmignore');
   },
 
   end: function () {
