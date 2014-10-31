@@ -52,7 +52,6 @@ gulp.task('dev', 'Watch and restart server on change', function (cb) {
 
 gulp.task('nodemon', false, function (cb) {
   var nodemon = require('gulp-nodemon');
-  var bunyan = spawn('node', [path.join(__dirname, 'node_modules/bunyan/bin/bunyan')], { stdio: ['pipe', process.stdout, process.stderr] });
 
   var nodemonOpts = {
     script: 'server.js',
@@ -74,6 +73,7 @@ gulp.task('nodemon', false, function (cb) {
       console.log(require('gulp-util').colors.bgBlue('server restarted at ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()));
     })
     .on('readable', function() {
+      var bunyan = spawn('node', [path.join(__dirname, 'node_modules/bunyan/bin/bunyan')], { stdio: ['pipe', process.stdout, process.stderr] });
       this.stdout.pipe(bunyan.stdin);
       this.stderr.pipe(bunyan.stdin);
     });
