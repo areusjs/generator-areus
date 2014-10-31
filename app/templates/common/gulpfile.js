@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
   gbundle = require('gulp-bundle-assets'),
+  del = require('del'),
   argv = require('yargs').argv,
   path = require('path'),
   spawn = require('child_process').spawn,
@@ -20,19 +21,17 @@ var gulp = require('gulp'),
       felint: [
           srcPublicPath + '/**/*.js'
       ],
-      cover: [
-        './server.js'
-      ].concat(srcJs),
+      cover: srcJs,
       test: [
         './test/**/*.js'
       ]
     },
     coverageSettings: {
       thresholds: {
-        statements: 100,
-        branches: 60,
-        lines: 100,
-        functions: 100
+        statements: 82,
+        branches: 33,
+        functions: 70,
+        lines: 82
       }
     }
   };
@@ -80,9 +79,8 @@ gulp.task('nodemon', false, function (cb) {
   cb();
 });
 
-gulp.task('clean', 'Clean all assets out of /public', function () {
-  return gulp.src([publicPath + '/*'], {read: false})
-    .pipe(require('gulp-rimraf')());
+gulp.task('clean', 'Clean all assets out of /public', function (cb) {
+  del([publicPath + '/*'], cb);
 });
 
 gulp.task('watch', 'Watch assets and build on change', function (cb) {

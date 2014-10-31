@@ -18,9 +18,9 @@
   "dependencies": {
   },
   "devDependencies": {
-    "gulp": "3.8.7",
-    "load-common-gulp-tasks": "0.3.2",
-    "should": "4.0.4",
-    "sinon": "1.10.3"
+    "gulp": "3.8.9",
+    "load-common-gulp-tasks": "1.0.3",
+    "should": "4.1.0",
+    "sinon": "1.11.1"
   }
 }
