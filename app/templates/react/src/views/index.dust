@@ -1,0 +1,6 @@
+{>"layouts/main"/}
+
+{<body}
+  <section id="react-app">{markup|s}</div>
+    <script id="initial-state" type="application/json">{state|s}</script>
+{/body}

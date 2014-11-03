@@ -53,8 +53,11 @@ gulp.task('nodemon', false, function (cb) {
   var nodemon = require('gulp-nodemon');
 
   var nodemonOpts = {
-    script: 'server.js',
+    script: 'server.js',<% if (templateEngine === 'react') { %>
+    ext: 'jsx dust js',
+<% } else { %>
     ext: 'dust js',
+<% }%>
     ignore: [ // only watch server files
       'bower_components/*',
       'node_modules/*',

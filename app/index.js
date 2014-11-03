@@ -36,21 +36,38 @@ var AppGenerator = yeoman.generators.Base.extend({
 
     var prompts = [
       {
+        type: 'input',
         name: "applicationName",
         message: "Application name?",
-        required: true,
         default: path.basename(process.cwd())
       },
       {
+        type: 'input',
         name: 'yourName',
-        message: 'Author name?',
-        required: true
+        message: 'Author name?'
+      },
+      {
+        type: 'list',
+        name: 'templateEngine',
+        message: 'Which template engine do you want to use?',
+        choices: [
+          {
+            name: "Dustjs",
+            value: "dustjs"
+          },
+          {
+            name: "React",
+            value: "react"
+          }
+        ],
+        default: "react"
       }
     ];
 
     this.prompt(prompts, function (props) {
       this.applicationName = props.applicationName;
       this.yourName = props.yourName;
+      this.templateEngine = props.templateEngine;
 
       done();
     }.bind(this));
@@ -60,6 +77,13 @@ var AppGenerator = yeoman.generators.Base.extend({
     app: function () {
       generatorUtils.processDirectory(this, path.join(__dirname, 'templates/common'), '.');
       generatorUtils.processDirectory(this, path.join(__dirname, 'templates/basic'), '.');
+      if (this.templateEngine === 'react') {
+        generatorUtils.processDirectory(this, path.join(__dirname, 'templates/react'), '.');
+      } else if (this.templateEngine === 'dustjs') {
+        generatorUtils.processDirectory(this, path.join(__dirname, 'templates/dustjs'), '.');
+      } else {
+        throw new Error('Invalid templateEngine:', this.templateEngine)
+      }
     }
   },
 
