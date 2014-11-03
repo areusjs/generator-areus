@@ -5,7 +5,7 @@
 The major architecture pieces include:
 
 1. [express.js](http://expressjs.com/) - routing
-1. [dustjs](http://linkedin.github.io/dustjs/) - view engine
+1. [react](http://facebook.github.io/react/) or [dustjs](http://linkedin.github.io/dustjs/) - view engine
 1. [gulp.js](http://gulpjs.com/) - task manager
 1. [bunyan](https://github.com/trentm/node-bunyan) - logging
 1. [nconf](https://github.com/flatiron/nconf) - configuration
