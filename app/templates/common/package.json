@@ -16,7 +16,6 @@
       "name": "<%= yourName %>"
     }
   ],
-  "license": "MIT",
   "dependencies": {
     "body-parser": "1.9.2",
     "bunyan": "1.2.1",

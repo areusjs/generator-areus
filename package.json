@@ -8,7 +8,6 @@
     "type": "git",
     "url": "https://github.com/areus/generator-areus"
   },
-  "author": "Chris Montgomery (https://github.com/chmontgomery)",
   "engines": {
     "node": ">=0.10.0"
   },
