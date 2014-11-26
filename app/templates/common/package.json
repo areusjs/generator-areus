@@ -17,26 +17,26 @@
     }
   ],
   "dependencies": {
-    "body-parser": "1.9.2",
-    "bunyan": "1.2.1",
-    "compression": "1.2.0",
+    "body-parser": "1.9.3",
+    "bunyan": "1.2.3",
+    "compression": "1.2.1",
     "consolidate": "0.10.0",
     "cookie-parser": "1.3.3",
-    "dustjs-linkedin": "2.4.2",
-    "express": "4.10.1",
-    "glob": "4.0.6",<% if (templateEngine === 'react') { %>
+    "dustjs-linkedin": "2.5.1",
+    "express": "4.10.4",
+    "glob": "4.2.1",<% if (templateEngine === 'react') { %>
     "jquery": "2.1.1",
     "lodash": "2.4.1",
-    "node-jsx": "^0.12.0",
-    "react": "^0.12.0",<% } %>
-    "morgan": "1.4.1",
-    "nconf": "0.6.9"
+    "node-jsx": "0.12.4",
+    "react": "0.12.1",<% } %>
+    "morgan": "1.5.0",
+    "nconf": "0.7.0"
   },
   "devDependencies": {
     "bower": "1.3.12",<% if (templateEngine === 'react') { %>
-    "browserify": "6.2.0",<% } %>
+    "browserify": "6.3.3",<% } %>
     "del": "0.1.3",
-    "gulp": "3.8.9",
+    "gulp": "3.8.10",
     "gulp-bundle-assets": "2.15.2",
     "gulp-if": "1.2.5",
     "gulp-less": "1.3.6",
@@ -44,13 +44,13 @@
     "gulp-nodemon": "1.0.4",
     "gulp-util": "3.0.1",
     "lazypipe": "0.2.2",
-    "load-common-gulp-tasks": "1.0.3",<% if (templateEngine === 'react') { %>
-    "reactify": "^0.15.2",<% } %>
-    "run-sequence": "1.0.1",
-    "should": "4.1.0",
-    "sinon": "1.11.1",
-    "supertest": "0.14.0",<% if (templateEngine === 'react') { %>
-    "vinyl-source-stream": "^1.0.0",<% } %>
-    "yargs": "1.3.2"
+    "load-common-gulp-tasks": "1.1.0",<% if (templateEngine === 'react') { %>
+    "reactify": "0.17.1",<% } %>
+    "run-sequence": "1.0.2",
+    "should": "4.3.0",
+    "sinon": "1.12.1",
+    "supertest": "0.15.0",<% if (templateEngine === 'react') { %>
+    "vinyl-source-stream": "1.0.0",<% } %>
+    "yargs": "1.3.3"
   }
 }
