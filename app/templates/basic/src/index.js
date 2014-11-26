@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var glob = require('glob');
-var favicon = require('serve-favicon');
+//var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compression = require('compression');
@@ -18,7 +18,9 @@ module.exports = function () {
   app.set('view engine', template_engine);
 
   // app.use(favicon(__dirname + '/public/images/favicon.ico'));
-  app.use(requestLogger()); // log all requests
+  if (process.env.NODE_ENV !== 'production') {
+    app.use(requestLogger()); // log all requests
+  }
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({
     extended: true
