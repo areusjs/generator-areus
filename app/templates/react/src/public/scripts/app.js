@@ -11,7 +11,7 @@ if (stateDom) {
     var initialState = JSON.parse(initialStateString);
     // Render the components, picking up where react left off on the server
     React.renderComponent(
-      <MyApp title={initialState.title} message={initialState.message}/>,
+      <MyApp {...initialState}/>,
       document.getElementById('react-app')
     );
   }

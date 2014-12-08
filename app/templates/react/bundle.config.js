@@ -2,6 +2,7 @@ var transformHelper = require('gulp-bundle-assets').transformHelper,
   browserify = require('browserify'),
   reactify = require('reactify'),
   sourceStream = require('vinyl-source-stream'),
+  gutil = require('gulp-util'),
   isDebug = (process.env.NODE_ENV !== 'min');
 
 var scriptStream = function (file, done) {
@@ -11,6 +12,11 @@ var scriptStream = function (file, done) {
   })
     .transform(reactify)
     .bundle()
+    .on('error', function (err) {
+      // make sure browserify errors don't break the pipe during watch: https://github.com/gulpjs/gulp/issues/259
+      gutil.log(err.toString());
+      this.emit('end');
+    })
     .pipe(sourceStream('app.js'))
     .pipe(done);
 };
