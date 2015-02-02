@@ -18,7 +18,7 @@ router.get('/', function (req, res) {
     message: 'Hello, world.'
   };
 
-  var markup = React.renderComponentToString(
+  var markup = React.renderToString(
     MyApp(currentState)
   );
 
