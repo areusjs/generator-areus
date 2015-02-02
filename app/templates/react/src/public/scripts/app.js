@@ -15,7 +15,7 @@ if (stateDom) {
   if (initialStateString) {
     var initialState = JSON.parse(initialStateString);
     // Render the components, picking up where react left off on the server
-    React.renderComponent(
+    React.render(
       <EntryView {...initialState}/>,
       document.getElementById('react-app')
     );
