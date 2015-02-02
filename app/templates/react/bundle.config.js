@@ -1,4 +1,5 @@
 var transformHelper = require('gulp-bundle-assets').transformHelper,
+  requireGlobify = require('require-globify'),
   browserify = require('browserify'),
   reactify = require('reactify'),
   sourceStream = require('vinyl-source-stream'),
@@ -11,6 +12,7 @@ var scriptStream = function (file, done) {
     debug: isDebug
   })
     .transform(reactify)
+    .transform(requireGlobify)
     .bundle()
     .on('error', function (err) {
       // make sure browserify errors don't break the pipe during watch: https://github.com/gulpjs/gulp/issues/259

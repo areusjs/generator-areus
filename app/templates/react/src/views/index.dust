@@ -2,5 +2,5 @@
 
 {<body}
   <section id="react-app">{markup|s}</div>
-  <script id="initial-state" type="application/json">{state|s}</script>
+  <script id="initial-state" data-component-entry="{entry}" type="application/json">{state|s}</script>
 {/body}
