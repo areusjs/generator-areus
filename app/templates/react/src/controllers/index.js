@@ -19,7 +19,7 @@ router.get('/', function (req, res) {
   };
 
   var markup = React.renderToString(
-    MyApp(currentState)
+    React.createElement(MyApp, currentState)
   );
 
   res.render('index', {
